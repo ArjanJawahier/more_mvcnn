@@ -25,7 +25,7 @@ from skimage.measure import shannon_entropy
 import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser(description="Generates a dataset in CSV format of depth-views entropy values.")
-parser.add_argument("--modelnet10", help="Specify root directory to the ModelNet10 dataset.", required=True)
+parser.add_argument("--data", help="Specify root directory to the ModelNet10 dataset.", required=True)
 parser.add_argument("--out", help="Select a desired output directory.", default="./")
 parser.add_argument("-v", "--verbose", help="Prints current state of the program while executing.", action='store_true')
 parser.add_argument("-x", "--horizontal_split", help="Number of views from a single ring. Each ring is divided in x "

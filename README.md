@@ -10,12 +10,12 @@ Ensure you are running Python>=3.6.5 and import the required libraries by runnin
 pip install -r requirements.txt
 ```
 
-WARNING: The dataset is quite large and generation scripts may take 
+WARNING: The darcetaset is quite large and generation scripts may take 
 hours to complete.
 
 To generate the entropy dataset run:
 ```
-python generate_entropy_dataset.py --modelnet10 <dir> --out <out>
+python generate_entropy_dataset.py --data <dir> --out <out>
 ```
 substitute `<dir>` with the root directory of the ModelNet10 dataset.
 This will save the entropy values for each of the 60 depth-views of 
@@ -24,8 +24,8 @@ You can change the `<out>` directory with the `--out` parameter.
 
 To generate the view dataset run:
 ```
-python generate_view_dataset.py --modelnet10 <dir> --set train --out <out>
-python generate_view_dataset.py --modelnet10 <dir> --set test --out <out>
+python generate_view_dataset.py --data <dir> --set train --out <out>
+python generate_view_dataset.py --data <dir> --set test --out <out>
 ```
 substitute `<dir>` with the root directory of the ModelNet10 dataset. 
 The output will consist in the train and test set of the image-views
@@ -33,10 +33,10 @@ stored respectively in `<out>/view-dataset-train/image` and
 `<out>/view-dataset-test/image`. You can change the `<out>` directory with the 
 `--out` parameter.
 
-The entropy model requires a pre-vozelized dataset which is generated 
+The entropy model requires a pre-voxelized dataset which is generated 
 by running:
 ```
-python prevoxelization.py --modelnet10 <dir>
+python prevoxelization.py --data <dir>
 ```
 As usual substitute `<dir>` with the root directory of the ModelNet10 dataset.
 The dataset will be generated in the `<out>/voxel_data` folder. You can change the 

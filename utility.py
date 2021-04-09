@@ -80,16 +80,8 @@ def get_label_dict(inverse=False):
                  'table': 8,
                  'toilet': 9}
 
-    int2label = {0: 'bathtub',
-                 1: 'bed',
-                 2: 'chair',
-                 3: 'desk',
-                 4: 'dresser',
-                 5: 'monitor',
-                 6: 'night_stand',
-                 7: 'sofa',
-                 8: 'table',
-                 9: 'toilet'}
+    int2label = dict(zip(label2int.values(), label2int.keys()))
+
     if inverse:
         return int2label
     else:
@@ -99,3 +91,6 @@ def get_label_dict(inverse=False):
 def get_datastamp():
     time = datetime.datetime.now()
     return time.strftime("%d-%b-%H%M%S")
+
+if __name__ == "__main__":
+    get_label_dict()

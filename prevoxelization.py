@@ -11,14 +11,14 @@ import open3d as o3d
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--modelnet10', help="Specify root directory to the ModelNet10 dataset.", required=True)
+parser.add_argument('--data', help="Specify root directory to the ModelNet10 dataset.", required=True)
 parser.add_argument('--out', help='Specify folder to save output', default='./')
 parser.add_argument('--n_voxels', help='Number of voxels per dimension.', default=50, type=int)
 args = parser.parse_args()
 
 VOXEL_SIZE = float(1 / args.n_voxels)
 BASE_DIR = sys.path[0]
-DATA_PATH = os.path.join(BASE_DIR, args.modelnet10)
+DATA_PATH = os.path.join(BASE_DIR, args.data)
 VOX_DIR = os.path.join(BASE_DIR, args.out, "voxel_data")
 
 labels = []

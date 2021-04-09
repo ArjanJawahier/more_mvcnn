@@ -75,7 +75,7 @@ def load_data(data, csv):
                 index = int(filename.split("_")[-1])
                 # print(f"[DEBUG] label, index : {lab}, {index}")
                 subcsv = csv[csv['label'] == lab]
-                entropies = np.array(subcsv[subcsv['object_index'] == index].sort_values(by=['view_code']).entropy)
+                entropies = np.array(subcsv[subcsv['obj_ind'] == index].sort_values(by=['code']).entropy)
                 # print(f"[DEBUG] Entropies of {file} : {entropies}")
                 y_train.append(entropies)
 
@@ -88,7 +88,7 @@ def load_data(data, csv):
                 index = int(filename.split("_")[-1])
                 # print(f"[DEBUG] label, index : {lab}, {index}")
                 subcsv = csv[csv['label'] == lab]
-                entropies = np.array(subcsv[subcsv['object_index'] == index].sort_values(by=['view_code']).entropy)
+                entropies = np.array(subcsv[subcsv['obj_ind'] == index].sort_values(by=['code']).entropy)
                 # print(f"[DEBUG] Entropies of {file} : {entropies}")
                 y_test.append(entropies)
 
@@ -145,7 +145,7 @@ def generate_cnn():
 
 
 def main():
-    os.mkdir(MODEL_DIR)
+    os.makedirs(MODEL_DIR, exist_ok=True)
     x_train, y_train, x_test, y_test = load_data(args.voxel_data, args.entropy_dataset)
 
     ## Uncomment following to perform hyperparameters training.

@@ -15,7 +15,7 @@ from utility import normalize3d
 from time import time
 
 parser = argparse.ArgumentParser(description="Generates views regularly positioned on a sphere around the object.")
-parser.add_argument("--modelnet10", help="Specify root directory to the ModelNet10 dataset.")
+parser.add_argument("--data", help="Specify root directory to the ModelNet10 dataset.")
 parser.add_argument("--set", help="Subdirectory: 'train' or 'test'.", default='train')
 parser.add_argument("--save_depth", help="Add to also save the correspondent depth-views dataset.", action='store_true')
 parser.add_argument("--out", help="Select a desired output directory.", default="./")
@@ -40,7 +40,7 @@ args = parser.parse_args()
 
 BASE_DIR = sys.path[0]
 OUT_DIR = os.path.join(BASE_DIR, args.out, f'view-dataset-{args.set}')
-DATA_PATH = os.path.join(BASE_DIR, args.modelnet10)
+DATA_PATH = os.path.join(BASE_DIR, args.data)
 IMAGE_WIDTH = 224
 IMAGE_HEIGHT = 224
 N_VIEWS_W = args.horizontal_split
